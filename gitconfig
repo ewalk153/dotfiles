@@ -1,6 +1,6 @@
 [user]
-	name = David Cornu
-	email = me@davidcornu.com
+	name = Eric Walker
+	email = eric.ewalker@gmail.com
 [core]
 	quotepath = false
 	excludesfile = ~/.gitignore
@@ -28,6 +28,10 @@
 [merge]
 	tool = Kaleidoscope
 [alias]
+	co = checkout
+	br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	publish = "!git push -u origin $(git branch-name)"
 	pom = pull origin master
 	pob = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
 	com = checkout master
@@ -40,3 +44,10 @@
 	yolo-revert = "!~/dotfiles/utils/revert.sh"
 	fork-point = "!git merge-base --fork-point origin/master $(git rev-parse --abbrev-ref HEAD)"
 	branch-log = "!git log $(git fork-point)...HEAD --oneline"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+	excludesfile = /Users/ericwalker/.gitignore_global
