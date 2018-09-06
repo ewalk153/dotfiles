@@ -1,103 +1,6 @@
-" https://github.com/VundleVim/Vundle.vim
-filetype off
-set rtp+=~/.config/nvim/bundle/Vundle.vim/
-call vundle#begin('~/.config/nvim/bundle')
-
-" Packages
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'junegunn/fzf'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'godlygeek/tabular'
-Plugin 'tpope/vim-commentary'
-Plugin 'kana/vim-textobj-user'
-Plugin 'mileszs/ack.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'nelstrom/vim-visual-star-search'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'tpope/vim-surround'
-Plugin 'wellle/targets.vim'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'kshenoy/vim-signature'
-Plugin 'janko-m/vim-test'
-Plugin 'w0rp/ale'
-
-" Additional language support
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ruby-formatter/rufo-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'nelstrom/vim-textobj-rubyblock'
-Plugin 'elzr/vim-json'
-Plugin 'rstacruz/sparkup'
-Plugin 'rust-lang/rust.vim'
-Plugin 'cespare/vim-toml'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'smerrill/vcl-vim-plugin'
-
-" Colour schemes
-" Plugin 'trusktr/seti.vim'
-Plugin 'nanotech/jellybeans.vim'
-
-call vundle#end()
-filetype plugin on
-filetype indent on
-
-" Colours
-set background=dark
-set termguicolors
-let g:lightline = { 'colorscheme': 'jellybeans' }
-colorscheme jellybeans
-
-" Render HTML attributes in italics
-highlight Comment gui=italic cterm=italic
-highlight htmlArg gui=italic cterm=italic
-highlight xmlAttrib gui=italic cterm=italic
-
-" Peace and quiet
-set noerrorbells
-set visualbell t_vb=
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
-" neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-" Use rg instead of ack
-let g:ackprg = 'rg --vimgrep'
-
-" FZF
-nnoremap <C-p> :FZF<CR>
-
-" NERDTree
-nnoremap <C-d> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" vim-json
-let g:vim_json_syntax_conceal = 0
-
-" vim-ruby
-let g:ruby_indent_access_modifier_style = 'normal'
-let g:ruby_indent_assignment_style = 'variable'
-let g:ruby_indent_block_style = 'do'
-
-" highlightedyank
-let g:highlightedyank_highlight_duration = 200
-
-" ALE
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'ruby': ['rufo'],
-\}
-
-" Use the dot command in normal mode
-xnoremap . :norm.<CR>
+" =================================================
+" Functions
+" =================================================
 
 " Use git-stripspace
 function! StripWhitespace()
@@ -107,95 +10,170 @@ function! StripWhitespace()
   call cursor(l, c)
 endfunction
 
-function! FormatJavaScript()
-  let l = line(".")
-  let c = col(".")
-  %!prettier --stdin --trailing-comma=es5 --single-quote --no-bracket-spacing
-  call cursor(l, c)
-endfunction
+" =================================================
+" Plugins
+" =================================================
 
-" Run goimports on current file
-function! GoImports()
-  let l = line(".")
-  let c = col(".")
-  %!goimports
-  call cursor(l, c)
-endfunction
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Toggle relative numbers
-function! ToggleRelativeNumbers()
-  if (&relativenumber == 1)
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunction
+Plug 'tpope/vim-dispatch'
 
-" Some handy shortcuts
+" `ctrl + d` open Nerdtree
+Plug 'scrooloose/nerdtree'
+
+" `ctrl + p` quick file opening
+Plug 'junegunn/fzf'
+
+" `:Ack [options] {pattern} [{directories}]` Search everywhere
+Plug 'mileszs/ack.vim'
+
+" `'` Quick comment
+Plug 'tpope/vim-commentary'
+
+" Wrap stuff
+Plug 'tpope/vim-surround'
+
+Plug 'tpope/vim-abolish'
+" Git status in gutter
+Plug 'airblade/vim-gitgutter'
+
+" TESTING better language support?
+Plug 'sheerun/vim-polyglot'
+
+" one dark theme
+Plug 'joshdick/onedark.vim'
+
+" multi cursor
+Plug 'terryma/vim-multiple-cursors'
+
+" Gstatus, Gbrowse
+Plug 'tpope/vim-fugitive'
+
+" Enables Gbrowse to open Github
+Plug 'tpope/vim-rhubarb'
+
+" Fast switching between open buffers
+" Plug 'jeetsukumaran/vim-buffergator'
+
+" fast buffer switch
+Plug 'jlanzarotta/bufexplorer'
+
+" Ruby plugin
+Plug 'vim-ruby/vim-ruby'
+
+" Rails specific support
+Plug 'tpope/vim-rails'
+
+" mirror of taglist v 4.6
+Plug 'ewalk153/taglist_46'
+
+Plug 'tpope/vim-dispatch'
+
+call plug#end()
+
+" Use rg instead of ack
+let g:ackprg = 'rg --vimgrep'
+
+" vim-json
+let g:vim_json_syntax_conceal = 0
+
+" vim-ruby
+let g:ruby_indent_access_modifier_style = 'normal'
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_block_style = 'do'
+
+" =================================================
+" Configs
+" =================================================
+
+" Colors
+syntax on
+colorscheme onedark
+
+" Old file types
+" Avsc monorail definitions
+au BufRead,BufNewFile *.avsc set filetype=json
+
+" Tab stuff
+nnoremap H gT
+nnoremap L gt
+
+" Leader stuff
 let mapleader=","
 nnoremap <Leader>c :nohl<CR>
-nnoremap <Leader>p :set paste!<CR>
-nnoremap <Leader>r :call ToggleRelativeNumbers()<CR>
 nnoremap <Leader>w :call StripWhitespace()<CR>:w<CR>
-nnoremap <Leader>j :call FormatJavaScript()<CR>
-nnoremap <Leader>i :call GoImports()<CR>
-nnoremap <Leader>b :BufExplorer<CR>
 
-" Don't trigger jump list with tab
-nnoremap <Tab> <Nop>
-nnoremap <C-I> <Tab>
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>m :NERDTreeFind<CR>
 
-" <esc> out of terminal
-tnoremap <Esc> <C-\><C-n>
+" run tests
+nmap <leader>fx "zy:let @x=expand("%").":".line(".")<CR>:Dispatch /opt/dev/bin/dev test <C-r>x <CR>
+" Copy current file path
+" nnoremap <silent> <leader>y :let @+=expand("%")<CR>
+nnoremap <leader>y :let @+=expand("%")<CR>
 
-" lol ex mode
-map Q <Nop>
+" copy current file path and line number
+nnoremap <leader>cfn :let @+=expand("%").":".line(".")<CR>
 
-" Quick comment toggling
-noremap \ :Commentary<CR>
+" Cuopy current directory, eg for searching for similar things
+nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
-" Make Y consistent with C/D
-nnoremap Y y$
+" Preview current file in Github
+nnoremap <leader>gh :Gbrowse<CR>
 
-" Show hidden chars
-" http://vimcasts.org/episodes/show-invisibles/
-set listchars=tab:▸\ ,eol:¬
-nmap <leader>h :set list!<CR>
+" Git blame current file
+nnoremap <leader>gb :Gblame<CR>
 
-" Run goimports on files before saving
-autocmd BufWritePre *.go call GoImports()
+" edit this config file
+nnoremap <leader>eco :e ~/.config/nvim/init.vim<CR>
+" Relative line number hybrid mode
+
+nnoremap <Leader>g- :silent Git stash<CR>:e<CR>
+nnoremap <Leader>g+ :silent Git stash pop<CR>:e<CR
+
+nnoremap <Leader>t :TlistToggle<CR>
+
+set rnu
+set nu
 
 " Convenience
 set nobackup noswapfile
 
+" Splits
+set splitright
+set splitbelow
+set fillchars=""
+
+nnoremap <silent> <Leader>= :exe "vertical resize +30"<CR>
+nnoremap <silent> <Leader>- :exe "vertical resize -30"<CR>
+
+" / Search
+set ic
+
 " text editing
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set textwidth=0
+set nowrap
 set formatoptions-=t " Auto-wrap text
 set formatoptions-=c " Auto-wrap comments
 set formatoptions-=l " Auto-wrap in insert mode
+set scrolloff=2 " 2 line of padding when scrolling
 
-" search
-set ignorecase smartcase
+" Remapble bash style tab completion
+ set wildmenu
+ set wildmode=list:longest,full
 
-" live substitution
-set inccommand=split
+" FZF
+nnoremap <C-p> :FZF<CR>
 
-" Display
-set number
-set hidden
-set cursorline
-set fillchars=""
-" set nowrap
-set wrap linebreak nolist
-set wildmode=list:longest,full
-set title
-set scrolloff=3
-set sidescrolloff=5
-set splitright
-set splitbelow
+" Quick comment toggling
+noremap \ :Commentary<CR>
 
-" Use system clipboard by default
+" =================================================
+" Clipboard
+" =================================================
+
 " https://github.com/spf13/spf13-vim/blob/7d48f769d1c991f82beee18a7f644b4ed351e5ce/.vimrc#L73-L79
 if has('clipboard')
   if has('unnamedplus') " When possible use + register for copy-paste
@@ -203,4 +181,4 @@ if has('clipboard')
   else " On mac and Windows, use * register for copy-paste
     set clipboard=unnamed
   endif
-endif
+end
