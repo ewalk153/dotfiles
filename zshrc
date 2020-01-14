@@ -91,6 +91,13 @@ function inspect-csr {
 
 # Get rid of autocorrection
 unsetopt correct_all
+function dev {
+  if [ -f /opt/dev/dev.sh ]
+  then
+    source /opt/dev/dev.sh
+    echo "dev loaded; re-run last command"
+  fi
+}
 
 function load-rbenv {
   if [ -d ~/.rbenv ]
@@ -107,16 +114,29 @@ function load-nvm {
   fi
 }
 
-if [ -f /opt/dev/dev.sh ]
-then
-  source /opt/dev/dev.sh
-else
-  load-rbenv
-  load-nvm
-fi
+function load-rvm {
+  if [ -s ~/.rvm/scripts/rvm ]
+  then
+    source ~/.rvm/scripts/rvm
+  fi
+}
+
+# switching to manual dev init
+# run load-dev
+# if [ -f /opt/dev/dev.sh ]
+# then
+#   source /opt/dev/dev.sh
+# else
+#   load-rbenv
+#   load-nvm
+# fi
 
 # Set editor
 export EDITOR=nvim
 
 # Use FZF if it's around
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
