@@ -65,8 +65,6 @@
       ]
     }
   ],
-  "editor.fontFamily": "IBM Plex Mono",
-  "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "workbench.fontAliasing": "antialiased",
   "rust.rls": {
@@ -80,7 +78,6 @@
   "vsicons.dontShowNewVersionMessage": true,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
-  "workbench.colorTheme": "Jellybeams",
   "gitlens.showWhatsNewAfterUpgrades": false,
   "window.zoomLevel": 0,
   "gitlens.keymap": "alternate",
@@ -94,5 +91,7 @@
     "suppressNoRepositoryWarning": false,
     "suppressResultsExplorerNotice": false,
     "suppressShowKeyBindingsNotice": true
-  }
+  },
+  "workbench.colorTheme": "Solarized Light",
+  "editor.multiCursorModifier": "ctrlCmd"
 }
