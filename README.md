@@ -30,3 +30,8 @@ $ ./bootstrap.sh
 
 - https://github.com/BurntSushi/ripgrep
 - https://github.com/jonas/tig
+
+
+curl -fLo ~/.config/nvim/colors/onedark.vim --create-dirs https://raw.githubusercontent.com/joshdick/onedark.vim/master/autoload/onedark.vim
+
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
