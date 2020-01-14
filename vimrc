@@ -165,9 +165,9 @@ syntax on
 filetype plugin indent on
 
 " Colours
-set background=dark
-let t_Co = 265
-colorscheme seti
+" set background=dark
+" let t_Co = 265
+" colorscheme seti
 
 " Convenience
 set nobackup noswapfile
