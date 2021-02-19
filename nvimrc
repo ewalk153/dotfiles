@@ -125,7 +125,7 @@ nnoremap <leader>cfn :let @+=expand("%").":".line(".")<CR>
 nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
 " Preview current file in Github
-nnoremap <leader>gh :Gbrowse<CR>
+nnoremap <leader>gh :.Gbrowse<CR>
 
 " Git blame current file
 nnoremap <leader>gb :Gblame<CR>
@@ -152,6 +152,9 @@ set fillchars=""
 
 nnoremap <silent> <Leader>= :exe "vertical resize +30"<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize -30"<CR>
+
+" Enable basic mouse useage
+set mouse=a
 
 " / Search
 set ic
