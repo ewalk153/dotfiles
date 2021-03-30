@@ -115,6 +115,10 @@ nnoremap <leader>m :NERDTreeFind<CR>
 
 " run tests
 nmap <leader>fx "zy:let @x=expand("%").":".line(".")<CR>:Dispatch /opt/dev/bin/dev test <C-r>x <CR>
+
+" open pr in gh
+nmap <leader>pr :Dispatch /opt/dev/bin/dev open pr<CR>
+
 " Copy current file path
 " nnoremap <silent> <leader>y :let @+=expand("%")<CR>
 nnoremap <leader>y :let @+=expand("%")<CR>
@@ -131,6 +135,9 @@ nnoremap <leader>gh :.Gbrowse<CR>
 " Git blame current file
 nnoremap <leader>gb :Gblame<CR>
 
+" Gstatus current file
+nnoremap <leader>gs :Gstatus<CR>
+
 " edit this config file
 nnoremap <leader>eco :e ~/.config/nvim/init.vim<CR>
 " Relative line number hybrid mode
@@ -139,6 +146,9 @@ nnoremap <Leader>g- :silent Git stash<CR>:e<CR>
 nnoremap <Leader>g+ :silent Git stash pop<CR>:e<CR
 
 nnoremap <Leader>t :TlistToggle<CR>
+
+" open current file in a tab
+nnoremap <Leader>a :tab sp<CR>
 
 set rnu
 set nu
