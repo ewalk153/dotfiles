@@ -201,3 +201,7 @@ if has('clipboard')
     set clipboard=unnamed
   endif
 end
+
+" Startup
+vnew
+vnew
