@@ -1,9 +1,12 @@
 [user]
 	name = Eric Walker
-	email = eric.ewalker@gmail.com
+	email = eric.walker@shopify.com
 [core]
 	quotepath = false
+	commitGraph = true
 	excludesfile = ~/.gitignore
+[commit]
+	verbose = true
 [color]
 	ui = true
 [push]
