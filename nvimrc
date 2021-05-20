@@ -95,7 +95,7 @@ let g:ruby_indent_block_style = 'do'
 " Colors
 syntax on
 colorscheme onedark
-
+set colorcolumn=120
 " Old file types
 " Avsc monorail definitions
 au BufRead,BufNewFile *.avsc set filetype=json
@@ -133,10 +133,10 @@ nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 nnoremap <leader>gh :.Gbrowse<CR>
 
 " Git blame current file
-nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :G blame<CR>
 
 " Gstatus current file
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :G status<CR>
 
 " edit this config file
 nnoremap <leader>eco :e ~/.config/nvim/init.vim<CR>
@@ -201,7 +201,3 @@ if has('clipboard')
     set clipboard=unnamed
   endif
 end
-
-" Startup
-vnew
-vnew
