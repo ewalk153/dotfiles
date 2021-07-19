@@ -77,19 +77,19 @@ ensure_symlink ~/dotfiles/vscode.json ~/Library/Application\ Support/Code/User/s
 header "Setting up packages"
 
 # Shell
-ensure_repo ~/.oh-my-zsh git@github.com:robbyrussell/oh-my-zsh.git
-ensure_repo ~/.oh-my-zsh/custom/plugins/pure git@github.com:sindresorhus/pure.git
-ensure_repo ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting git@github.com:zsh-users/zsh-syntax-highlighting.git 
+ensure_repo ~/.oh-my-zsh https://github.com/robbyrussell/oh-my-zsh.git
+ensure_repo ~/.oh-my-zsh/custom/plugins/pure https://github.com/sindresorhus/pure.git
+ensure_repo ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git 
 
 # Vim
-ensure_repo ~/.vim/bundle/Vundle.vim git@github.com:VundleVim/Vundle.vim.git
+ensure_repo ~/.vim/bundle/Vundle.vim https://github.com/VundleVim/Vundle.vim.git
 
 # NeoVim
-ensure_repo ~/.config/nvim/bundle/Vundle.vim git@github.com:VundleVim/Vundle.vim.git
+ensure_repo ~/.config/nvim/bundle/Vundle.vim https://github.com/VundleVim/Vundle.vim.git
 
 # Ruby
-ensure_repo ~/.rbenv git@github.com:sstephenson/rbenv.git
-ensure_repo ~/.rbenv/plugins/ruby-build git@github.com:sstephenson/ruby-build.git
+ensure_repo ~/.rbenv https://github.com/sstephenson/rbenv.git
+ensure_repo ~/.rbenv/plugins/ruby-build https://github.com/sstephenson/ruby-build.git
 
 # Node
-ensure_repo ~/.nvm git@github.com:creationix/nvm.git
+ensure_repo ~/.nvm https://github.com/creationix/nvm.git
