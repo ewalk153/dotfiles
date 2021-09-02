@@ -87,9 +87,14 @@ ensure_repo ~/.vim/bundle/Vundle.vim https://github.com/VundleVim/Vundle.vim.git
 # NeoVim
 ensure_repo ~/.config/nvim/bundle/Vundle.vim https://github.com/VundleVim/Vundle.vim.git
 
+# PlugInstall, I haven't removed vundle yet
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 # Ruby
 ensure_repo ~/.rbenv https://github.com/sstephenson/rbenv.git
 ensure_repo ~/.rbenv/plugins/ruby-build https://github.com/sstephenson/ruby-build.git
 
 # Node
 ensure_repo ~/.nvm https://github.com/creationix/nvm.git
+
