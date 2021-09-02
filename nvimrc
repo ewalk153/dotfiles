@@ -170,6 +170,9 @@ set mouse=a
 " / Search
 set ic
 
+" color in spin
+set termguicolors
+
 " text editing
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set textwidth=0
