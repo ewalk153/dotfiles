@@ -27,7 +27,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdtree'
 
 " `ctrl + p` quick file opening
-Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " `:Ack [options] {pattern} [{directories}]` Search everywhere
 Plug 'mileszs/ack.vim'
@@ -75,6 +77,13 @@ Plug 'ewalk153/taglist_46'
 
 Plug 'tpope/vim-dispatch'
 
+" autocomplete with vim from sorbet
+Plug 'autozimu/LanguageClient-neovim'
+
+Plug 'Shopify/vim-sorbet' ", { 'branch': 'main' }
+
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 " Use rg instead of ack
@@ -88,6 +97,12 @@ let g:ruby_indent_access_modifier_style = 'normal'
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_block_style = 'do'
 
+let g:LanguageClient_serverCommands = {
+   \ 'ruby': ['bundle', 'exec', 'srb', 'tc', '--lsp'],
+   \ }
+
+" setup deoplete
+" let g:deoplete#enable_at_startup = 1
 " =================================================
 " Configs
 " =================================================
@@ -136,7 +151,7 @@ nnoremap <leader>gh :.Gbrowse<CR>
 nnoremap <leader>gb :G blame<CR>
 
 " Gstatus current file
-nnoremap <leader>gs :G status<CR>
+nnoremap <leader>gs :Gstatus<CR>
 
 " edit this config file
 nnoremap <leader>eco :e ~/.config/nvim/init.vim<CR>
@@ -145,10 +160,14 @@ nnoremap <leader>eco :e ~/.config/nvim/init.vim<CR>
 nnoremap <Leader>g- :silent Git stash<CR>:e<CR>
 nnoremap <Leader>g+ :silent Git stash pop<CR>:e<CR
 
-nnoremap <Leader>t :TlistToggle<CR>
+" nnoremap <Leader>t :TlistToggle<CR>
+nnoremap <Leader>t :tselect
 
 " open current file in a tab
 nnoremap <Leader>a :tab sp<CR>
+
+" autocomplete end with <shift><CR>
+imap <S-CR>    <CR><CR>end<Esc>-cc
 
 set rnu
 set nu
@@ -187,8 +206,7 @@ set scrolloff=2 " 2 line of padding when scrolling
  set wildmode=list:longest,full
 
 " FZF
-nnoremap <C-p> :FZF<CR>
-
+nnoremap <C-p> :Files<CR>
 " Quick comment toggling
 noremap \ :Commentary<CR>
 

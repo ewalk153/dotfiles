@@ -71,6 +71,9 @@ let g:ruby_indent_block_style = 'do'
 " Use the dot command in normal mode
 xnoremap . :norm.<CR>
 
+" autocomplete end with <shift><CR>
+imap <S-CR>    <CR><CR>end<Esc>-cc
+
 " Use git-stripspace
 function! StripWhitespace()
   let l = line(".")
@@ -134,6 +137,7 @@ nnoremap <Leader>w :call StripWhitespace()<CR>:w<CR>
 nnoremap <Leader>j :call FormatJavaScript()<CR>
 nnoremap <Leader>i :call GoImports()<CR>
 nnoremap <Leader>b :BufExplorer<CR>
+nnoremap <Leader>a :tab sp<CR>
 
 " Don't trigger jump list with tab
 nnoremap <Tab> <Nop>

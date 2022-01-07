@@ -1,0 +1,23 @@
+#/bin/bash
+set -euC
+cd ~/src/github.com/Shopify
+
+att() {
+  [ -n "${TMUX:-}" ] &&
+    tmux switch-client -t '=site' ||
+    tmux attach-session -t '=site'
+}
+ 
+if tmux has-session -t '=site' 2> /dev/null; then
+  att
+  exit 0
+fi
+ 
+ tmux new-session -d -s site
+ 
+tmux new-window -d -t '=site' -n shopify-core -c ~/src/github.com/Shopify/shopify
+tmux send-keys -t '=site:=shopify-core' 'vim' Enter
+
+tmux new-window -d -t '=site' -n payment-service
+
+att

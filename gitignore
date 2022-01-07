@@ -12,3 +12,4 @@ scratch.*
 npm-debug.log
 yarn-error.log
 tags
+.metadata_never_index

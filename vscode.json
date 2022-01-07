@@ -79,9 +79,8 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "gitlens.showWhatsNewAfterUpgrades": false,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "gitlens.keymap": "alternate",
-  "workbench.activityBar.visible": false,
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false,
     "suppressCommitNotFoundWarning": false,
@@ -93,5 +92,21 @@
     "suppressShowKeyBindingsNotice": true
   },
   "workbench.colorTheme": "Solarized Light",
-  "editor.multiCursorModifier": "ctrlCmd"
+  "editor.columnSelection": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "workbench.editor.enablePreview": false,
+  "ruby.intellisense": "rubyLocate",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "remote.SSH.defaultExtensions": [
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode"
+  ]
 }
