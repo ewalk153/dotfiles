@@ -44,6 +44,7 @@ ensure_directory(){
 ensure_repo(){ 
   local repo_path=$1
   local repo_url=$2
+  local repo_branch${3-master}
   
   ensure_directory $repo_path
   
@@ -52,7 +53,7 @@ ensure_repo(){
     if git rev-parse --is-inside-work-tree > /dev/null && [ "$repo_path" =  "$(git rev-parse --show-toplevel)" ]
     then
       log "$repo_path is a already a git repository. Updating."
-      git pull origin master
+      git pull origin $repo_branch
     else
       log "$repo_path isn't a git repository. Creating."
       git clone "$repo_url" "$repo_path"
@@ -78,7 +79,7 @@ header "Setting up packages"
 
 # Shell
 ensure_repo ~/.oh-my-zsh https://github.com/robbyrussell/oh-my-zsh.git
-ensure_repo ~/.oh-my-zsh/custom/plugins/pure https://github.com/sindresorhus/pure.git
+ensure_repo ~/.oh-my-zsh/custom/plugins/pure https://github.com/sindresorhus/pure.git main
 ensure_repo ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git 
 
 # Vim
