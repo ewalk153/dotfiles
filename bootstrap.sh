@@ -97,5 +97,5 @@ ensure_repo ~/.rbenv https://github.com/sstephenson/rbenv.git
 ensure_repo ~/.rbenv/plugins/ruby-build https://github.com/sstephenson/ruby-build.git
 
 # Node
-ensure_repo ~/.nvm https://github.com/creationix/nvm.git
+#ensure_repo ~/.nvm https://github.com/creationix/nvm.git
 
