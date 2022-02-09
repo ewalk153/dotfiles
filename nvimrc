@@ -78,9 +78,9 @@ Plug 'ewalk153/taglist_46'
 Plug 'tpope/vim-dispatch'
 
 " autocomplete with vim from sorbet
-Plug 'autozimu/LanguageClient-neovim'
+" Plug 'autozimu/LanguageClient-neovim'
 
-Plug 'Shopify/vim-sorbet' ", { 'branch': 'main' }
+" Plug 'Shopify/vim-sorbet' ", { 'branch': 'main' }
 
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -97,9 +97,9 @@ let g:ruby_indent_access_modifier_style = 'normal'
 let g:ruby_indent_assignment_style = 'variable'
 let g:ruby_indent_block_style = 'do'
 
-let g:LanguageClient_serverCommands = {
-   \ 'ruby': ['bundle', 'exec', 'srb', 'tc', '--lsp'],
-   \ }
+"let g:LanguageClient_serverCommands = {
+"   \ 'ruby': ['bundle', 'exec', 'srb', 'tc', '--lsp'],
+"   \ }
 
 " setup deoplete
 " let g:deoplete#enable_at_startup = 1
