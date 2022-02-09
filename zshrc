@@ -89,6 +89,10 @@ function vim-bundle {
   cd $(bundle-show $1); vim
 }
 
+function jzf {
+  jq . $* | fzf
+}
+
 # Misc
 alias serve='ruby -run -e httpd . -p 9090'
 alias venv='source ./virtualenv/bin/activate'
