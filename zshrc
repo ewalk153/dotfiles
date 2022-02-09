@@ -117,37 +117,6 @@ function inspect-csr {
 
 # Get rid of autocorrection
 unsetopt correct_all
-function dev {
-  if [ -f /opt/dev/dev.sh ]
-  then
-    source /opt/dev/dev.sh
-    echo "dev loaded; re-run last command"
-  fi
-}
-
-[ -z "$NO_DEV" ] && dev 
-
-function load-rbenv {
-  if [ -d ~/.rbenv ]
-  then
-    export PATH=~/.rbenv/bin:$PATH
-    eval "$(rbenv init -)"
-  fi
-}
-
-function load-nvm {
-  if [ -s ~/.nvm/nvm.sh ]
-  then
-    source ~/.nvm/nvm.sh
-  fi
-}
-
-function load-rvm {
-  if [ -s ~/.rvm/scripts/rvm ]
-  then
-    source ~/.rvm/scripts/rvm
-  fi
-}
 
 # switching to manual dev init
 # run load-dev
@@ -176,4 +145,10 @@ export PICO_SDK_PATH="/Users/ericwalker/src/github.com/raspberrypi/pico-sdk"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 
-[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
