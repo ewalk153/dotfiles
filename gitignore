@@ -13,3 +13,5 @@ npm-debug.log
 yarn-error.log
 tags
 .metadata_never_index
+.DS_Store
+log/archive/
