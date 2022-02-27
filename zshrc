@@ -144,7 +144,17 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PICO_SDK_PATH="/Users/ericwalker/src/github.com/raspberrypi/pico-sdk"
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
-
+if [ -n "$BASH_VERSION" ] || [ -n "$ZSH_VERSION" ]; then
+  source /usr/local/share/chruby/chruby.sh
+fi
+if [ "$(uname -s)" = "Darwin" ]; then
+  source /usr/local/share/chruby/auto.sh
+  if [ -f /opt/dev/dev.sh ]; then
+    # dev already handled above
+  elif [ -f ~/src/github.com/burke/minidev/dev.sh ]; then
+    source ~/src/github.com/burke/minidev/dev.sh
+  fi
+fi
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh

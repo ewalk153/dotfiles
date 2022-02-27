@@ -96,6 +96,9 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ensure_repo ~/.rbenv https://github.com/sstephenson/rbenv.git
 ensure_repo ~/.rbenv/plugins/ruby-build https://github.com/sstephenson/ruby-build.git
 
+if [ "$(uname -s)" = "Darwin" ]; then
+  ensure_repo ~/src/github.com/burke/minidev https://github.com/burke/minidev.git
+fi
 # Node
 #ensure_repo ~/.nvm https://github.com/creationix/nvm.git
 
