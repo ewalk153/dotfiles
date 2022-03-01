@@ -21,6 +21,8 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'vimwiki/vimwiki'
+
 Plug 'tpope/vim-dispatch'
 
 " `ctrl + d` open Nerdtree
@@ -77,6 +79,9 @@ Plug 'ewalk153/taglist_46'
 
 Plug 'tpope/vim-dispatch'
 
+" ruby code block navigation
+Plug 'dewyze/vim-ruby-block-helpers'
+
 " autocomplete with vim from sorbet
 " Plug 'autozimu/LanguageClient-neovim'
 
@@ -122,7 +127,8 @@ nnoremap L gt
 " Leader stuff
 let mapleader=","
 nnoremap <Leader>c :nohl<CR>
-nnoremap <Leader>w :call StripWhitespace()<CR>:w<CR>
+" disabled, as it conflicts with vim-wiki binding
+" nnoremap <Leader>w :call StripWhitespace()<CR>:w<CR>
 
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
