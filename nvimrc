@@ -20,7 +20,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-
+Plug 'mattn/calendar-vim'
 Plug 'vimwiki/vimwiki'
 
 Plug 'tpope/vim-dispatch'
