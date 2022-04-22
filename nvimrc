@@ -82,6 +82,8 @@ Plug 'tpope/vim-dispatch'
 " ruby code block navigation
 Plug 'dewyze/vim-ruby-block-helpers'
 
+" to do list
+Plug 'dewyze/vim-tada'
 " autocomplete with vim from sorbet
 " Plug 'autozimu/LanguageClient-neovim'
 
