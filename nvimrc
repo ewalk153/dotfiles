@@ -153,7 +153,7 @@ nnoremap <leader>cfn :let @+=expand("%").":".line(".")<CR>
 nnoremap <leader>ch :let @+=expand("%:p:h")<CR>
 
 " Preview current file in Github
-nnoremap <leader>gh :.Gbrowse<CR>
+nnoremap <leader>gh :.GBrowse<CR>
 
 " Git blame current file
 nnoremap <leader>gb :G blame<CR>
