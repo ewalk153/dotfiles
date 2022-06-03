@@ -4,7 +4,7 @@
 
 ```shell
 $ cd ~/
-$ git clone git@github.com:davidcornu/dotfiles.git
+$ git clone git@github.com:ewalk153/dotfiles.git
 $ ./dotfiles/bootstrap.sh
 ```
 
