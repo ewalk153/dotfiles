@@ -40,6 +40,7 @@ then
   alias gitbox='open -a "Gitbox"'
   alias open-audacity='open /Applications/Audacity.app/Contents/MacOS/Audacity'
   alias ff='vim $(fzf)'
+  alias cf-tunnel='cloudflared tunnel --url http://localhost:3000'
   # Add Homebrew to PATH
   if [ -d "/usr/local/Cellar" ]
   then
