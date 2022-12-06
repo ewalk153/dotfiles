@@ -15,3 +15,4 @@ tags
 .metadata_never_index
 .DS_Store
 log/archive/
+.DS_Store

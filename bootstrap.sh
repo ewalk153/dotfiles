@@ -70,6 +70,7 @@ ensure_symlink ~/dotfiles/nvimrc ~/.config/nvim/init.vim
 ensure_symlink ~/dotfiles/ideavimrc ~/.ideavimrc
 ensure_symlink ~/dotfiles/zshrc ~/.zshrc
 ensure_symlink ~/dotfiles/gitconfig ~/.gitconfig
+ensure_symlink ~/dotfiles/gitconfig-macos ~/.gitconfig-macos
 ensure_symlink ~/dotfiles/gitignore ~/.gitignore
 ensure_symlink ~/dotfiles/gemrc ~/.gemrc
 ensure_symlink ~/dotfiles/tmux.conf ~/.tmux.conf
