@@ -18,6 +18,8 @@ export PATH=$GOPATH/bin:$PATH
 
 # aliases
 alias vim='nvim'
+alias routepiadd='sudo route -n add -net 192.168.1.35 192.168.2.3'
+alias routepiremove='sudo route delete 192.168.1.35 192.168.2.3'
 
 # Set editor
 export EDITOR=nvim
@@ -30,3 +32,5 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+
+source ~/dotfiles/zshrc_extra
