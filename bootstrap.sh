@@ -103,3 +103,5 @@ fi
 # Node
 #ensure_repo ~/.nvm https://github.com/creationix/nvm.git
 
+# extra local configs
+touch  ~/dotfiles/zshrc_extra

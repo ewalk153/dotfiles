@@ -5,7 +5,6 @@ nohup.out
 node_modules
 .env
 virtualenv
-gin-bin
 scratch.*
 .idea
 .dev
@@ -13,6 +12,4 @@ npm-debug.log
 yarn-error.log
 tags
 .metadata_never_index
-.DS_Store
 log/archive/
-.DS_Store
